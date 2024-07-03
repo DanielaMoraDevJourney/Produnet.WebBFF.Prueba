@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Produnet.WebBFF.Prueba", "Produnet.WebBFF.Prueba\Produnet.WebBFF.Prueba.csproj", "{E65FD906-8CFF-4063-BB38-924A42957623}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E65FD906-8CFF-4063-BB38-924A42957623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65FD906-8CFF-4063-BB38-924A42957623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65FD906-8CFF-4063-BB38-924A42957623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65FD906-8CFF-4063-BB38-924A42957623}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB80DC97-32C3-4A51-B022-8C76B3C56D9E}
+	EndGlobalSection
+EndGlobal
