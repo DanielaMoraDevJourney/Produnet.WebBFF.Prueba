@@ -2,7 +2,7 @@
 
 namespace Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio
 {
-    public class PeriodoInactividad
+    public class PeriodoActividad
     {
         public Guid Id { get; set; }
         public Guid SesionUsuarioId { get; set; }

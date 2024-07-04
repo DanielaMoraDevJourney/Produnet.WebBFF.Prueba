@@ -22,6 +22,28 @@ namespace Produnet.WebBFF.Prueba.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.PeriodoActividad", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("HoraFin")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("HoraInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SesionUsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SesionUsuarioId");
+
+                    b.ToTable("PeriodosActividad");
+                });
+
             modelBuilder.Entity("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.PeriodoInactividad", b =>
                 {
                     b.Property<Guid>("Id")
@@ -69,6 +91,17 @@ namespace Produnet.WebBFF.Prueba.Migrations
                     b.ToTable("SesionesUsuario");
                 });
 
+            modelBuilder.Entity("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.PeriodoActividad", b =>
+                {
+                    b.HasOne("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.SesionUsuario", "SesionUsuario")
+                        .WithMany("PeriodosActividad")
+                        .HasForeignKey("SesionUsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SesionUsuario");
+                });
+
             modelBuilder.Entity("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.PeriodoInactividad", b =>
                 {
                     b.HasOne("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.SesionUsuario", "SesionUsuario")
@@ -82,6 +115,8 @@ namespace Produnet.WebBFF.Prueba.Migrations
 
             modelBuilder.Entity("Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio.SesionUsuario", b =>
                 {
+                    b.Navigation("PeriodosActividad");
+
                     b.Navigation("PeriodosInactividad");
                 });
 #pragma warning restore 612, 618

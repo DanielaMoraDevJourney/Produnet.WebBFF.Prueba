@@ -1,7 +1,5 @@
-﻿using Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Dominio;
 
 namespace Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Infraestructura.Data.Context
 {
@@ -9,6 +7,7 @@ namespace Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Infraestructura.Data.Con
     {
         public DbSet<SesionUsuario> SesionesUsuario { get; set; }
         public DbSet<PeriodoInactividad> PeriodosInactividad { get; set; }
+        public DbSet<PeriodoActividad> PeriodosActividad { get; set; }
 
         public AplicacionDbContext(DbContextOptions<AplicacionDbContext> options) : base(options)
         {
@@ -22,6 +21,11 @@ namespace Produnet.WebBFF.Prueba.Produnet.WebBFF.Prueba.Infraestructura.Data.Con
                 .HasMany(us => us.PeriodosInactividad)
                 .WithOne(ip => ip.SesionUsuario)
                 .HasForeignKey(ip => ip.SesionUsuarioId);
+
+            modelBuilder.Entity<SesionUsuario>()
+                .HasMany(us => us.PeriodosActividad)
+                .WithOne(ap => ap.SesionUsuario)
+                .HasForeignKey(ap => ap.SesionUsuarioId);
         }
     }
 }
